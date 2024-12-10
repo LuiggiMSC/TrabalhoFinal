@@ -1,35 +1,22 @@
 package modeloClinica;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-/**
- *
- * @author legitx
- */
 @Entity
-@Table(name="tb_funcionario")
-public class Funcionario extends Pessoa implements Serializable{
-    
+@Table(name = "tb_funcionario")
+public class Funcionario extends Pessoa implements Serializable {
+
     @Enumerated(EnumType.STRING)
     private TipoFuncionario tipoFuncionario;
-    
+
     @OneToOne(mappedBy = "funcionario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Agenda agenda;
-    
-    
-    
-    public Funcionario(){
-      
-    } 
-    
-    
+
+    public Funcionario() {
+
+    }
+
     public TipoFuncionario getTipoFuncionario() {
         return tipoFuncionario;
     }
@@ -45,9 +32,9 @@ public class Funcionario extends Pessoa implements Serializable{
     public void setAgenda(Agenda agenda) {
         this.agenda = agenda;
     }
-    
+
     @Override
     public String toString() {
-        return  "[ID]- " + super.getId() + ". [NOME]- " + super.getNome() + " .[CARGO]- " + tipoFuncionario;
+        return "[ID]- " + super.getId() + ". [NOME]- " + super.getNome() + " .[CARGO]- " + tipoFuncionario;
     }
 }

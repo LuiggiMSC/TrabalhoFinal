@@ -1,3 +1,4 @@
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,21 +17,22 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 /**
  *
  * @author legitx
  */
 public class TestePersistencia {
+
     PersistenciaJPA jpa = new PersistenciaJPA();
+
     public TestePersistencia() {
     }
-    
+
     @Before
     public void setUp() {
         jpa.conexaoAberta();
     }
-    
+
     @After
     public void tearDown() {
         jpa.fecharConexao();
@@ -39,64 +41,57 @@ public class TestePersistencia {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-     @Test
-     public void testePersistencia() {
-     
-         Cliente c = new Cliente();
-         c.setCpf("01026549051");
-         c.setNome("Luiggi");
-         c.setTelefone("123456789");
-         c.setPerfilCliente(PerfilCliente.PREMIUM);
-         
-         
-         Funcionario f = new Funcionario();
-         f.setCpf("65478932564");
-         f.setTelefone("123564789");
-         f.setTipoFuncionario(TipoFuncionario.CIRURGIA);
-         f.setNome("Celia");
-         
-         Servico s = new Servico();
-         s.setDescricao("esmaltação em gel");
-         s.setValorUnitario(25.00);
-         s.setMaximoDesconto(10.00);
-         
-         
-         Agenda agenda = new Agenda();
-         agenda.setFuncionario(f);
-         
-         
-         
-         
-         Agendamento agendamento = new Agendamento();
-         agendamento.setCliente(c);
-         
-         String dataString = "2024-12-22 14:30:00";
-            
-         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-           
+    @Test
+    public void testePersistencia() {
+
+        Cliente c = new Cliente();
+        c.setCpf("01026549051");
+        c.setNome("Luiggi");
+        c.setTelefone("123456789");
+        c.setPerfilCliente(PerfilCliente.PREMIUM);
+
+        Funcionario f = new Funcionario();
+        f.setCpf("65478932564");
+        f.setTelefone("123564789");
+        f.setTipoFuncionario(TipoFuncionario.CIRURGIA);
+        f.setNome("Miguel");
+
+        Servico s = new Servico();
+        s.setDescricao("Banho");
+        s.setValorUnitario(5.00);
+        s.setMaximoDesconto(1.00);
+
+        Agenda agenda = new Agenda();
+        agenda.setFuncionario(f);
+
+        Agendamento agendamento = new Agendamento();
+        agendamento.setCliente(c);
+
+        String dataString = "01-02-2001 09:00";
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+
         try {
-          Date data = formato.parse(dataString);
+            Date data = formato.parse(dataString);
             agendamento.setData(data);
         } catch (ParseException ex) {
             Logger.getLogger(TestePersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         agendamento.setAgenda(agenda);
         agenda.addAgendamentos(agendamento);
         f.setAgenda(agenda);
-         
-         try {
-             jpa.persist(c);
-             jpa.persist(f);
-             jpa.persist(s);
-             jpa.persist(agenda);
-             jpa.persist(agendamento);
-          
-         } catch (Exception ex) {
-             
-             System.err.println("Erro ao persistir dados.");
-         }
-     
-     
-     }
+
+        try {
+            jpa.persist(c);
+            jpa.persist(f);
+            jpa.persist(s);
+            jpa.persist(agenda);
+            jpa.persist(agendamento);
+
+        } catch (Exception ex) {
+
+            System.err.println("Erro ao persistir dados.");
+        }
+
+    }
 }
