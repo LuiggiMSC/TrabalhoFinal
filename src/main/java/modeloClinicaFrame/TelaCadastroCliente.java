@@ -85,7 +85,7 @@ public class TelaCadastroCliente extends javax.swing.JDialog {
             }
         });
 
-        btnCancelar.setText("Sair");
+        btnCancelar.setText("SAIR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);

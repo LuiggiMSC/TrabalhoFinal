@@ -1,12 +1,12 @@
 package modeloClinica;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+/**
+ *
+ * @author legitx
+ */
 
 @Entity
 @Table(name="tb_servico")
@@ -62,7 +62,7 @@ public class Servico implements Serializable{
 
     @Override
     public String toString() {
-        return "id: " + id + ", descrição: " + descricao;
+        return "[" + id + "]: " + descricao;
     }
     
     

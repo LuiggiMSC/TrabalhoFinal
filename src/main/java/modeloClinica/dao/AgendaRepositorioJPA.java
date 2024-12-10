@@ -1,25 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modeloClinica.dao;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import modeloClinica.Agenda;
 import modeloClinica.Agendamento;
 import modeloClinica.Cliente;
 import modeloClinica.Funcionario;
 import modeloClinica.Servico;
 
-
-
 /**
  *
- * @author ggbra
+ * @author legitx
  */
 public class AgendaRepositorioJPA implements InterfaceBD {
 
@@ -65,8 +56,8 @@ public class AgendaRepositorioJPA implements InterfaceBD {
         entity = getEntityManager();
         try {
             entity.getTransaction().begin();
-            
-            if(!entity.contains(o)){
+
+            if (!entity.contains(o)) {
                 o = entity.merge(o);
             }
             entity.remove(o);
@@ -85,36 +76,36 @@ public class AgendaRepositorioJPA implements InterfaceBD {
         }
         return entity;
     }
-   
-    public List<Agendamento> getAllAgendamentosByAgenda(Agenda agenda){
+
+    public List<Agendamento> getAllAgendamentosByAgenda(Agenda agenda) {
         entity = getEntityManager();
         try {
             Query query = entity.createQuery(
-                "SELECT ag FROM Agendamento ag WHERE ag.agenda = :agenda ORDER BY ag.id ASC", Agendamento.class);
+                    "SELECT ag FROM Agendamento ag WHERE ag.agenda = :agenda ORDER BY ag.id ASC", Agendamento.class);
             query.setParameter("agenda", agenda);
             return query.getResultList();
-           
-        }catch (Exception e) {
+
+        } catch (Exception e) {
             System.err.println("Erro ao buscar Agendamentos: " + e);
             return null;
         }
-        
+
     }
-    
-    public List<Agendamento> getAllAgendamentos(){
+
+    public List<Agendamento> getAllAgendamentos() {
         entity = getEntityManager();
         try {
             Query query = entity.createQuery(
-                "SELECT ag FROM Agendamento ag ORDER BY ag.id ASC", Agendamento.class);
+                    "SELECT ag FROM Agendamento ag ORDER BY ag.id ASC", Agendamento.class);
             return query.getResultList();
-           
-        }catch (Exception e) {
+
+        } catch (Exception e) {
             System.err.println("Erro ao buscar Agendamentos: " + e);
             return null;
         }
-        
+
     }
-    
+
     public List<Agenda> getAllAgenda() {
         entity = getEntityManager();
         try {
@@ -125,65 +116,63 @@ public class AgendaRepositorioJPA implements InterfaceBD {
             return null;
         }
     }
-    
-   public List<Agendamento> getAgendaFuncionarioFiltros(Cliente cliente, Servico servico, Agenda agenda) {
-    entity = getEntityManager();
-    try {
-        StringBuilder jpql = new StringBuilder("SELECT ag FROM Agendamento ag WHERE ag.agenda = :agenda");
-        
-        if (cliente != null) {
-            jpql.append(" AND ag.cliente = :cliente");
-        }
-        if (servico != null) {
-            jpql.append(" AND ag.servico = :servico");
-        }
-        jpql.append(" ORDER BY ag.id ASC");
-        
-        Query query = entity.createQuery(jpql.toString(), Agendamento.class);
-        query.setParameter("agenda", agenda);
-        
-        if (cliente != null) {
-            query.setParameter("cliente", cliente);
-        }
-        if (servico != null) {
-            query.setParameter("servico", servico);
-        }
-        
-        return query.getResultList();
-    } finally {
-        entity.close();
-    }
-}
 
-   
-   public List<Agendamento> getAgendamentosFiltros(Cliente cliente, Servico servico) {
-    entity = getEntityManager();
-    try {
-        StringBuilder jpql = new StringBuilder("SELECT ag FROM Agendamento ag ");
-        
-        jpql.append("WHERE 1=1 ");
-        if (cliente != null) {
-            jpql.append(" AND ag.cliente = :cliente ");
-        }
-        if (servico != null) {
-            jpql.append(" AND ag.servico = :servico ");
-        }
-        jpql.append(" ORDER BY ag.id ASC ");
-        
-        Query query = entity.createQuery(jpql.toString(), Agendamento.class);
-        
-        if (cliente != null) {
-            query.setParameter("cliente", cliente);
-        }
-        if (servico != null) {
-            query.setParameter("servico", servico);
-        }
-        
-        return query.getResultList();
-    } finally {
-        entity.close();
-    }
-}
+    public List<Agendamento> getAgendaFuncionarioFiltros(Cliente cliente, Servico servico, Agenda agenda) {
+        entity = getEntityManager();
+        try {
+            StringBuilder jpql = new StringBuilder("SELECT ag FROM Agendamento ag WHERE ag.agenda = :agenda");
 
+            if (cliente != null) {
+                jpql.append(" AND ag.cliente = :cliente");
+            }
+            if (servico != null) {
+                jpql.append(" AND ag.servico = :servico");
+            }
+            jpql.append(" ORDER BY ag.id ASC");
+
+            Query query = entity.createQuery(jpql.toString(), Agendamento.class);
+            query.setParameter("agenda", agenda);
+
+            if (cliente != null) {
+                query.setParameter("cliente", cliente);
+            }
+            if (servico != null) {
+                query.setParameter("servico", servico);
+            }
+
+            return query.getResultList();
+        } finally {
+            entity.close();
+        }
+    }
+
+    public List<Agendamento> getAgendamentosFiltros(Cliente cliente, Servico servico) {
+        entity = getEntityManager();
+        try {
+            StringBuilder jpql = new StringBuilder("SELECT ag FROM Agendamento ag ");
+
+            jpql.append("WHERE 1=1 ");
+            if (cliente != null) {
+                jpql.append(" AND ag.cliente = :cliente ");
+            }
+            if (servico != null) {
+                jpql.append(" AND ag.servico = :servico ");
+            }
+            jpql.append(" ORDER BY ag.id ASC ");
+
+            Query query = entity.createQuery(jpql.toString(), Agendamento.class);
+
+            if (cliente != null) {
+                query.setParameter("cliente", cliente);
+            }
+            if (servico != null) {
+                query.setParameter("servico", servico);
+            }
+
+            return query.getResultList();
+        } finally {
+            entity.close();
+        }
+    }
 
 }

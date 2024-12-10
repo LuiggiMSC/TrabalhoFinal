@@ -7,7 +7,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import modeloClinica.Servico;
 
-
 /**
  *
  * @author legitx
@@ -56,8 +55,8 @@ public class ServicoRepositorioJPA implements InterfaceBD {
         entity = getEntityManager();
         try {
             entity.getTransaction().begin();
-            
-            if(!entity.contains(o)){
+
+            if (!entity.contains(o)) {
                 o = entity.merge(o);
             }
             entity.remove(o);
@@ -87,24 +86,22 @@ public class ServicoRepositorioJPA implements InterfaceBD {
             return null;
         }
     }
-    
-    
-    public List<Servico> getServicoFiltro(String descricao){
+
+    public List<Servico> getServicoFiltro(String descricao) {
         entity = getEntityManager();
         try {
             Query query;
-           
-            query = entity.createQuery("Select s from Servico s WHERE LOWER(s.descricao) LIKE LOWER(:descricao) ORDER BY s.id ASC", Servico.class); 
-                
+
+            query = entity.createQuery("Select s from Servico s WHERE LOWER(s.descricao) LIKE LOWER(:descricao) ORDER BY s.id ASC", Servico.class);
+
             query.setParameter("descricao", "%" + descricao + "%");
-                         
+
             return query.getResultList();
-            
+
         } catch (Exception e) {
             System.err.println("Erro ao buscar Serviços: " + e);
             return null;
         }
     }
-    
-   
+
 }

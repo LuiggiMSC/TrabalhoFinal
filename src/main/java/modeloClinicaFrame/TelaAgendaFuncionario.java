@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package modeloClinicaFrame;
 
 import java.awt.Component;
@@ -25,7 +21,7 @@ import modeloClinica.dao.ServicoRepositorioJPA;
 
 /**
  *
- * @author ggbra
+ * @author legitx
  */
 
 public class TelaAgendaFuncionario extends javax.swing.JDialog {
@@ -69,7 +65,6 @@ public class TelaAgendaFuncionario extends javax.swing.JDialog {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAgenda = new javax.swing.JTable();
-        pnlFuncionario = new javax.swing.JPanel();
         lblBuscaNome3 = new javax.swing.JLabel();
         cmbServico = new javax.swing.JComboBox<>();
         lblBuscaNome = new javax.swing.JLabel();
@@ -93,17 +88,6 @@ public class TelaAgendaFuncionario extends javax.swing.JDialog {
         tblAgenda.setColumnSelectionAllowed(true);
         jScrollPane2.setViewportView(tblAgenda);
         tblAgenda.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-
-        javax.swing.GroupLayout pnlFuncionarioLayout = new javax.swing.GroupLayout(pnlFuncionario);
-        pnlFuncionario.setLayout(pnlFuncionarioLayout);
-        pnlFuncionarioLayout.setHorizontalGroup(
-            pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        pnlFuncionarioLayout.setVerticalGroup(
-            pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
 
         lblBuscaNome3.setText("Tipo:");
 
@@ -162,7 +146,6 @@ public class TelaAgendaFuncionario extends javax.swing.JDialog {
                                 .addComponent(lblBuscaNome3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cmbServico, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(pnlFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,9 +157,7 @@ public class TelaAgendaFuncionario extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(pnlFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(63, 63, 63)
                 .addComponent(areaListagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -391,7 +372,6 @@ public class TelaAgendaFuncionario extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblBuscaNome;
     private javax.swing.JLabel lblBuscaNome3;
-    private javax.swing.JPanel pnlFuncionario;
     private javax.swing.JTable tblAgenda;
     // End of variables declaration//GEN-END:variables
 

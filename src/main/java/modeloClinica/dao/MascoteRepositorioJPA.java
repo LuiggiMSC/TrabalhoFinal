@@ -59,8 +59,8 @@ public class MascoteRepositorioJPA implements InterfaceBD {
         entity = getEntityManager();
         try {
             entity.getTransaction().begin();
-            
-            if(!entity.contains(o)){
+
+            if (!entity.contains(o)) {
                 o = entity.merge(o);
             }
             entity.remove(o);
@@ -79,7 +79,7 @@ public class MascoteRepositorioJPA implements InterfaceBD {
         return entity;
     }
 
-    // Ajustado para buscar Mascote ao invés de Cliente
+    // MASCOTE
     public List<Mascote> getAllMascotes() {
         entity = getEntityManager();
         try {
@@ -90,7 +90,7 @@ public class MascoteRepositorioJPA implements InterfaceBD {
             return null;
         }
     }
-    
+
     public List<Funcionario> getAllFuncionarios() {
         entity = getEntityManager();
         try {
@@ -101,15 +101,15 @@ public class MascoteRepositorioJPA implements InterfaceBD {
             return null;
         }
     }
-    
-    public List<Cliente> getClienteFiltro(String nome, PerfilCliente perfil){
+
+    public List<Cliente> getClienteFiltro(String nome, PerfilCliente perfil) {
         entity = getEntityManager();
         try {
             Query query;
-            if (perfil == null && (nome != null && !nome.isEmpty())){
-                query = entity.createQuery("Select c from Cliente c WHERE LOWER(c.nome) LIKE LOWER(:nome) ORDER BY c.id ASC", Cliente.class); 
+            if (perfil == null && (nome != null && !nome.isEmpty())) {
+                query = entity.createQuery("Select c from Cliente c WHERE LOWER(c.nome) LIKE LOWER(:nome) ORDER BY c.id ASC", Cliente.class);
                 query.setParameter("nome", "%" + nome + "%");
-            } else if (perfil != null && (nome == null || nome.isEmpty())){
+            } else if (perfil != null && (nome == null || nome.isEmpty())) {
                 query = entity.createQuery("Select c from Cliente c WHERE c.perfilCliente LIKE :perfil ORDER BY c.id ASC", Cliente.class);
                 query.setParameter("perfil", perfil);
             } else {
@@ -123,15 +123,15 @@ public class MascoteRepositorioJPA implements InterfaceBD {
             return null;
         }
     }
-    
-    public List<Funcionario> getFuncionarioFiltro(String nome, TipoFuncionario tipo){
+
+    public List<Funcionario> getFuncionarioFiltro(String nome, TipoFuncionario tipo) {
         entity = getEntityManager();
         try {
             Query query;
-            if (tipo == null && (nome != null && !nome.isEmpty())){
-                query = entity.createQuery("Select f from Funcionario f WHERE LOWER(f.nome) LIKE LOWER(:nome) ORDER BY f.id ASC", Funcionario.class); 
+            if (tipo == null && (nome != null && !nome.isEmpty())) {
+                query = entity.createQuery("Select f from Funcionario f WHERE LOWER(f.nome) LIKE LOWER(:nome) ORDER BY f.id ASC", Funcionario.class);
                 query.setParameter("nome", "%" + nome + "%");
-            } else if (tipo != null && (nome == null || nome.isEmpty())){
+            } else if (tipo != null && (nome == null || nome.isEmpty())) {
                 query = entity.createQuery("Select f from Funcionario f WHERE f.tipoFuncionario LIKE :tipo ORDER BY f.id ASC", Funcionario.class);
                 query.setParameter("tipo", tipo);
             } else {

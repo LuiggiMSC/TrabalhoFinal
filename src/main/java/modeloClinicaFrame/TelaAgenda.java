@@ -18,7 +18,7 @@ import modeloClinica.dao.PessoaRepositorioJPA;
 
 /**
  *
- * @author ggbra
+ * @author legitx
  */
 public class TelaAgenda extends javax.swing.JFrame {
 

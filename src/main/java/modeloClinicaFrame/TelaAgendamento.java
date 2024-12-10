@@ -29,7 +29,7 @@ import modeloClinica.dao.ServicoRepositorioJPA;
 
 /**
  *
- * @author ggbra
+ * @author legitx
  */
 public class TelaAgendamento extends javax.swing.JFrame {
 
@@ -81,6 +81,7 @@ public class TelaAgendamento extends javax.swing.JFrame {
         btnNovoAgendamento = new javax.swing.JButton();
         btnEditarAgendamento = new javax.swing.JButton();
         btnRemoverAgendamento = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -135,9 +136,9 @@ public class TelaAgendamento extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmbCliente, 0, 311, Short.MAX_VALUE)
-                    .addComponent(cmbServico, 0, 311, Short.MAX_VALUE)
+                    .addComponent(cmbServico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlFuncionarioLayout.setVerticalGroup(
             pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,6 +180,13 @@ public class TelaAgendamento extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout areaBotoesLayout = new javax.swing.GroupLayout(areaBotoes);
         areaBotoes.setLayout(areaBotoesLayout);
         areaBotoesLayout.setHorizontalGroup(
@@ -186,9 +194,11 @@ public class TelaAgendamento extends javax.swing.JFrame {
             .addGroup(areaBotoesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(areaBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNovoAgendamento)
-                    .addComponent(btnEditarAgendamento)
-                    .addComponent(btnRemoverAgendamento))
+                    .addGroup(areaBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnNovoAgendamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEditarAgendamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRemoverAgendamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         areaBotoesLayout.setVerticalGroup(
@@ -200,6 +210,8 @@ public class TelaAgendamento extends javax.swing.JFrame {
                 .addComponent(btnEditarAgendamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoverAgendamento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -235,7 +247,7 @@ public class TelaAgendamento extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(pnlFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,6 +333,10 @@ public class TelaAgendamento extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,6 +493,7 @@ public class TelaAgendamento extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoverAgendamento;
     private javax.swing.JComboBox<Cliente> cmbCliente;
     private javax.swing.JComboBox<Servico> cmbServico;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -45,6 +45,7 @@ public class TelaCliente extends javax.swing.JFrame {
         btnNovoCliente = new javax.swing.JButton();
         btnEditarCliente = new javax.swing.JButton();
         btnRemoverCliente = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         areaBotoes = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
 
@@ -89,7 +90,7 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addComponent(lblBuscaVinculo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbPerfilCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap())
         );
         pnlFuncionarioLayout.setVerticalGroup(
             pnlFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,6 +127,13 @@ public class TelaCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout areaListagemLayout = new javax.swing.GroupLayout(areaListagem);
         areaListagem.setLayout(areaListagemLayout);
         areaListagemLayout.setHorizontalGroup(
@@ -133,12 +141,18 @@ public class TelaCliente extends javax.swing.JFrame {
             .addGroup(areaListagemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(areaListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNovoCliente)
-                    .addComponent(btnEditarCliente)
-                    .addComponent(btnRemoverCliente))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(areaListagemLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(areaListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnNovoCliente)
+                            .addComponent(btnEditarCliente)
+                            .addComponent(btnRemoverCliente))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, areaListagemLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addContainerGap(13, Short.MAX_VALUE))))
         );
         areaListagemLayout.setVerticalGroup(
             areaListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,6 +166,8 @@ public class TelaCliente extends javax.swing.JFrame {
                 .addComponent(btnEditarCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemoverCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -266,6 +282,10 @@ public class TelaCliente extends javax.swing.JFrame {
         this.carregarClientesFiltro();
     }//GEN-LAST:event_txtBuscaNomeKeyReleased
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +370,7 @@ public class TelaCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnNovoCliente;
     private javax.swing.JButton btnRemoverCliente;
     private javax.swing.JComboBox<PerfilCliente> cmbPerfilCliente;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblBuscaNome;

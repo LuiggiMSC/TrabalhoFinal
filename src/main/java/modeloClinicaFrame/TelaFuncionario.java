@@ -14,7 +14,7 @@ import modeloClinica.dao.PessoaRepositorioJPA;
 
 /**
  *
- * @author ggbra
+ * @author legitx
  */
 public class TelaFuncionario extends javax.swing.JFrame {
     PessoaRepositorioJPA jpa;

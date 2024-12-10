@@ -8,23 +8,24 @@ import javax.persistence.Persistence;
  *
  * @author legitx
  */
-public class PersistenciaJPA implements InterfaceBD{
+public class PersistenciaJPA implements InterfaceBD {
+
     EntityManager entity;
     EntityManagerFactory factory;
-    
-    public PersistenciaJPA(){
+
+    public PersistenciaJPA() {
         factory = Persistence.createEntityManagerFactory("pu_lpoo_E1_LuiggiMathewScortegagna");
         entity = factory.createEntityManager();
     }
-    
+
     @Override
     public Boolean conexaoAberta() {
-       return entity.isOpen();
+        return entity.isOpen();
     }
 
     @Override
     public void fecharConexao() {
-      entity.close();
+        entity.close();
     }
 
     @Override
@@ -35,37 +36,37 @@ public class PersistenciaJPA implements InterfaceBD{
     @Override
     public void persist(Object o) throws Exception {
         entity = getEntityManager();
-        try{
-        entity.getTransaction().begin();
-        entity.persist(o);
-        entity.getTransaction().commit();
-        } catch(Exception e){
-            if(entity.getTransaction().isActive()){
+        try {
+            entity.getTransaction().begin();
+            entity.persist(o);
+            entity.getTransaction().commit();
+        } catch (Exception e) {
+            if (entity.getTransaction().isActive()) {
                 entity.getTransaction().rollback();
-            }    
+            }
         }
     }
 
     @Override
     public void remover(Object o) throws Exception {
-       entity = getEntityManager();
-        try{
-        entity.getTransaction().begin();
-        entity.remove(o);
-        entity.getTransaction().commit();
-        } catch(Exception e){
-            if(entity.getTransaction().isActive()){
+        entity = getEntityManager();
+        try {
+            entity.getTransaction().begin();
+            entity.remove(o);
+            entity.getTransaction().commit();
+        } catch (Exception e) {
+            if (entity.getTransaction().isActive()) {
                 entity.getTransaction().rollback();
-            }    
+            }
         }
     }
-    
-    public EntityManager getEntityManager(){
-        if(entity == null || !entity.isOpen()){
+
+    public EntityManager getEntityManager() {
+        if (entity == null || !entity.isOpen()) {
             entity = factory.createEntityManager();
-            
+
         }
         return entity;
     }
-    
+
 }

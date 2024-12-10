@@ -16,7 +16,7 @@ import modeloClinica.dao.PessoaRepositorioJPA;
 
 /**
  *
- * @author ggbra
+ * @author legitx
  */
 public class TelaCadastroFuncionario extends javax.swing.JDialog {
     private Funcionario f;
@@ -87,14 +87,14 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
             }
         });
 
-        btnCancelar.setText("Sair");
+        btnCancelar.setText("SAIR");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
-        lblEmail1.setText("Vínculo:");
+        lblEmail1.setText("Tipo:");
 
         cmbTipoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ public class TelaCadastroFuncionario extends javax.swing.JDialog {
                         .addComponent(cmbTipoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(btnCancelar)))
                 .addContainerGap())
         );

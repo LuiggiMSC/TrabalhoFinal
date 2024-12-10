@@ -45,14 +45,14 @@ public class TestePersistencia {
     public void testePersistencia() {
 
         Cliente c = new Cliente();
-        c.setCpf("01026549051");
-        c.setNome("Luiggi");
-        c.setTelefone("123456789");
-        c.setPerfilCliente(PerfilCliente.REGULAR);
+        c.setCpf("0154378051");
+        c.setNome("LuiggiMSC");
+        c.setTelefone("15435789");
+        c.setPerfilCliente(PerfilCliente.ECONOMICO);
 
         Funcionario f = new Funcionario();
-        f.setCpf("65478932564");
-        f.setTelefone("123564789");
+        f.setCpf("612987364");
+        f.setTelefone("123243289");
         f.setTipoFuncionario(TipoFuncionario.CIRURGIA);
         f.setNome("Miguel");
 
@@ -87,9 +87,7 @@ public class TestePersistencia {
             jpa.persist(s);
             jpa.persist(agenda);
             jpa.persist(agendamento);
-
         } catch (Exception ex) {
-
             System.err.println("Erro ao persistir dados.");
         }
 

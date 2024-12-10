@@ -2,7 +2,10 @@ package modeloClinica;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
+/**
+ *
+ * @author legitx
+ */
 @Entity
 @Table(name = "tb_funcionario")
 public class Funcionario extends Pessoa implements Serializable {
