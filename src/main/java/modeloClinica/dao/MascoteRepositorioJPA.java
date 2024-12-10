@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modeloClinica.dao;
 
 import java.util.List;
@@ -14,7 +10,6 @@ import modeloClinica.Funcionario;
 import modeloClinica.Mascote;
 import modeloClinica.PerfilCliente;
 import modeloClinica.TipoFuncionario;
-
 
 /**
  *
@@ -80,15 +75,15 @@ public class MascoteRepositorioJPA implements InterfaceBD {
     public EntityManager getEntityManager() {
         if (entity == null || !entity.isOpen()) {
             entity = factory.createEntityManager();
-
         }
         return entity;
     }
 
-    public List<Cliente> getAllClientes() {
+    // Ajustado para buscar Mascote ao invés de Cliente
+    public List<Mascote> getAllMascotes() {
         entity = getEntityManager();
         try {
-            Query query = entity.createQuery("Select c from Mascote c ORDER BY c.id ASC", Mascote.class);
+            Query query = entity.createQuery("Select m from Mascote m ORDER BY m.id ASC", Mascote.class);
             return query.getResultList();
         } catch (Exception e) {
             System.err.println("Erro ao buscar Mascotes: " + e);
@@ -112,28 +107,17 @@ public class MascoteRepositorioJPA implements InterfaceBD {
         try {
             Query query;
             if (perfil == null && (nome != null && !nome.isEmpty())){
-                
                 query = entity.createQuery("Select c from Cliente c WHERE LOWER(c.nome) LIKE LOWER(:nome) ORDER BY c.id ASC", Cliente.class); 
-                
                 query.setParameter("nome", "%" + nome + "%");
-                
             } else if (perfil != null && (nome == null || nome.isEmpty())){
-                
                 query = entity.createQuery("Select c from Cliente c WHERE c.perfilCliente LIKE :perfil ORDER BY c.id ASC", Cliente.class);
-               
                 query.setParameter("perfil", perfil);
-                
             } else {
-               
                 query = entity.createQuery("Select c from Cliente c WHERE c.perfilCliente LIKE :perfil AND LOWER(c.nome) LIKE LOWER(:nome) ORDER BY c.id ASC", Cliente.class);
-               
                 query.setParameter("nome", "%" + nome + "%");
-               
                 query.setParameter("perfil", perfil);
             }
-            
             return query.getResultList();
-            
         } catch (Exception e) {
             System.err.println("Erro ao buscar Clientes: " + e);
             return null;
@@ -145,32 +129,20 @@ public class MascoteRepositorioJPA implements InterfaceBD {
         try {
             Query query;
             if (tipo == null && (nome != null && !nome.isEmpty())){
-                
                 query = entity.createQuery("Select f from Funcionario f WHERE LOWER(f.nome) LIKE LOWER(:nome) ORDER BY f.id ASC", Funcionario.class); 
-                
                 query.setParameter("nome", "%" + nome + "%");
-                
             } else if (tipo != null && (nome == null || nome.isEmpty())){
-                
                 query = entity.createQuery("Select f from Funcionario f WHERE f.tipoFuncionario LIKE :tipo ORDER BY f.id ASC", Funcionario.class);
-               
                 query.setParameter("tipo", tipo);
-                
             } else {
-               
                 query = entity.createQuery("Select f from Funcionario f WHERE f.tipoFuncionario LIKE :tipo AND LOWER(f.nome) LIKE LOWER(:nome) ORDER BY f.id ASC", Funcionario.class);
-               
                 query.setParameter("nome", "%" + nome + "%");
-               
                 query.setParameter("tipo", tipo);
             }
-            
             return query.getResultList();
-            
         } catch (Exception e) {
             System.err.println("Erro ao buscar Funcionarios: " + e);
             return null;
         }
     }
-  
 }
