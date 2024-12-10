@@ -1,9 +1,12 @@
 package modeloClinica;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -11,20 +14,19 @@ import javax.persistence.Table;
  * @author legitx
  */
 @Entity
-@Table(name="tb_cliente")
-public class Cliente extends Pessoa implements Serializable{
-    
+@Table(name = "tb_cliente")
+public class Cliente extends Pessoa implements Serializable {
+
     @Enumerated(EnumType.STRING)
     private PerfilCliente perfilCliente;
-     
-    
-    public Cliente(){
-        
+
+    public Cliente() {
+
     }
 
-    
-    
-    
+    @OneToMany(mappedBy = "dono", cascade = CascadeType.ALL)
+    private List<Mascote> mascotes;
+
     public PerfilCliente getPerfilCliente() {
         return perfilCliente;
     }
@@ -32,9 +34,9 @@ public class Cliente extends Pessoa implements Serializable{
     public void setPerfilCliente(PerfilCliente perfilCliente) {
         this.perfilCliente = perfilCliente;
     }
-    
+
     @Override
     public String toString() {
-        return  "id: " + super.getId() + ", nome: " + super.getNome() + ", perfil: " + perfilCliente;
+        return "id: " + super.getId() + ", nome: " + super.getNome() + ", perfil: " + perfilCliente;
     }
 }
