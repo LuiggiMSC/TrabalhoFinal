@@ -48,7 +48,7 @@ public class TestePersistencia {
         c.setCpf("01026549051");
         c.setNome("Luiggi");
         c.setTelefone("123456789");
-        c.setPerfilCliente(PerfilCliente.PREMIUM);
+        c.setPerfilCliente(PerfilCliente.REGULAR);
 
         Funcionario f = new Funcionario();
         f.setCpf("65478932564");

@@ -21,8 +21,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         miFuncionario = new javax.swing.JMenuItem();
-        miMascote = new javax.swing.JMenuItem();
         miCliente = new javax.swing.JMenuItem();
+        miMascote = new javax.swing.JMenuItem();
         miServico = new javax.swing.JMenuItem();
         menuAgendamento = new javax.swing.JMenu();
         miAgendamento = new javax.swing.JMenuItem();
@@ -31,9 +31,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        menuCadastro.setText("Cadastrar");
+        menuCadastro.setText("REGISTRAR");
 
-        miFuncionario.setText("Funcionario");
+        miFuncionario.setText("VETERINARIO");
         miFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miFuncionarioActionPerformed(evt);
@@ -41,15 +41,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         menuCadastro.add(miFuncionario);
 
-        miMascote.setText("Mascote");
-        miMascote.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miMascoteActionPerformed(evt);
-            }
-        });
-        menuCadastro.add(miMascote);
-
-        miCliente.setText("Cliente");
+        miCliente.setText("CLIENTE");
         miCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miClienteActionPerformed(evt);
@@ -57,7 +49,15 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         menuCadastro.add(miCliente);
 
-        miServico.setText("Serviço");
+        miMascote.setText("MASCOTE");
+        miMascote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miMascoteActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(miMascote);
+
+        miServico.setText("SERVICO");
         miServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miServicoActionPerformed(evt);
@@ -67,9 +67,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(menuCadastro);
 
-        menuAgendamento.setText("Atendimentos");
+        menuAgendamento.setText("ATENDIMENTOS");
 
-        miAgendamento.setText("Agendar");
+        miAgendamento.setText("CRIAR");
         miAgendamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miAgendamentoActionPerformed(evt);
@@ -79,9 +79,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(menuAgendamento);
 
-        menuAgenda.setText("Verificar");
+        menuAgenda.setText("CONFERIR");
 
-        miAgenda.setText("Agendas");
+        miAgenda.setText("AGENDAMENTO");
         miAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miAgendaActionPerformed(evt);
@@ -97,7 +97,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 227, Short.MAX_VALUE)
+            .addGap(0, 256, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,8 +133,8 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_miAgendaActionPerformed
 
     private void miMascoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miMascoteActionPerformed
-        TelaMascote telaMascote = new TelaMascote();
-        telaMascote.setVisible(true);
+        TelaFuncionario telaFuncionario = new TelaFuncionario();
+        telaFuncionario.setVisible(true);
     }//GEN-LAST:event_miMascoteActionPerformed
 
     /**

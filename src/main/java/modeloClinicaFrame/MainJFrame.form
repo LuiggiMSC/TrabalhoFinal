@@ -6,36 +6,36 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="menuCadastro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar"/>
+            <Property name="text" type="java.lang.String" value="REGISTRAR"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="miFuncionario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Funcionario"/>
+                <Property name="text" type="java.lang.String" value="VETERINARIO"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miFuncionarioActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="miMascote">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mascote"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miMascoteActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cliente"/>
+                <Property name="text" type="java.lang.String" value="CLIENTE"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miClienteActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="miMascote">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="MASCOTE"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miMascoteActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miServico">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Servi&#xe7;o"/>
+                <Property name="text" type="java.lang.String" value="SERVICO"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miServicoActionPerformed"/>
@@ -45,12 +45,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuAgendamento">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Atendimentos"/>
+            <Property name="text" type="java.lang.String" value="ATENDIMENTOS"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="miAgendamento">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Agendar"/>
+                <Property name="text" type="java.lang.String" value="CRIAR"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miAgendamentoActionPerformed"/>
@@ -60,12 +60,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuAgenda">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Verificar"/>
+            <Property name="text" type="java.lang.String" value="CONFERIR"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="miAgenda">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Agendas"/>
+                <Property name="text" type="java.lang.String" value="AGENDAMENTO"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miAgendaActionPerformed"/>
@@ -99,7 +99,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="227" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="256" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">

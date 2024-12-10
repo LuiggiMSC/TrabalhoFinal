@@ -37,6 +37,6 @@ public class Cliente extends Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return "id: " + super.getId() + ", nome: " + super.getNome() + ", perfil: " + perfilCliente;
+        return "[" + super.getId() + "]: " + super.getNome() + ", perfil: " + perfilCliente;
     }
 }

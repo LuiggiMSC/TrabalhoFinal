@@ -69,7 +69,7 @@ public class Agenda implements Serializable{
 
     @Override
     public String toString() {
-        return "Agenda " + funcionario.getNome();
+        return "agendas para: " + funcionario.getNome();
     }
     
     
